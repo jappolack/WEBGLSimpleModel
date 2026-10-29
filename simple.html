@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Street Patrol</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font: 14px/1.4 system-ui, sans-serif;
+        }
+
+        #action-controls {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            z-index: 1;
+            display: flex;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(20, 35, 40, 0.2);
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        #action-controls select,
+        #action-controls button {
+            min-height: 36px;
+            padding: 0 10px;
+            border: 1px solid #7d8b8d;
+            border-radius: 4px;
+            background: white;
+            color: #172729;
+            font: inherit;
+        }
+
+        #action-controls select {
+            max-width: min(60vw, 260px);
+        }
+
+        #pocket-count {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 1;
+            min-width: 120px;
+            padding: 10px 12px;
+            border: 1px solid rgba(20, 35, 40, 0.2);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            color: #172729;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        #action-controls button {
+            background: #245c53;
+            border-color: #245c53;
+            color: white;
+            cursor: pointer;
+        }
+
+        #action-controls button:disabled,
+        #action-controls select:disabled {
+            cursor: wait;
+            opacity: 0.65;
+        }
+    </style>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three":"https://unpkg.com/three@0.180.0/build/three.module.js",
+            "three/addons/":"https://unpkg.com/three@0.180.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<output id="pocket-count" aria-live="polite">Coins collected: 0</output>
+
+<div id="action-controls">
+    <select id="action-select" aria-label="Character action" disabled>
+        <option value="">Loading actions...</option>
+    </select>
+    <button id="action-play" type="button" disabled>Play action</button>
+</div>
+
+<script type="module" src="simple.js"></script>
+
+</body>
+</html>
